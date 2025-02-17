@@ -23,7 +23,7 @@ public class TaskList {
     public void markTaskAsDone(String description) {
         Node current = head;
         while (current != null) {
-            if (current.task.getDescription().equalsIgnoreCase(task.description)) {
+            if (current.task.getDescription().equalsIgnoreCase(description)) {
                 current.task.markAsDone();
                 return;
             }
