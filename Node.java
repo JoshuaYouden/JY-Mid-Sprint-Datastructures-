@@ -1,6 +1,6 @@
 public class Node {
     Task task;
-    TaskNode next;
+    Node next;
 
     Node(Task task) {
         this.task = task;
