@@ -1,5 +1,10 @@
 public class Node {
-    public int value;
-    public Node next;
-    public Task task;
+    Task task;
+    TaskNode next;
+
+    Node(Task task) {
+        this.task = task;
+        this.next = null;
+    }
+
 }
