@@ -20,6 +20,11 @@ public class Task {
     }
 
     public void markAsCompleted(boolean completed) {
-        this.completed = completed;
+        this.completed = true;
+    }
+
+    @Override
+    public String toString() {
+        return "[ " + (completed ? "✔" : "✘") + " ] " + description;
     }
 }
