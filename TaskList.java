@@ -21,15 +21,32 @@ public class TaskList {
     }
 
     public void markTaskAsCompleted(String description) {
+        if (head == null) {
+            System.out.println("No tasks available.");
+            return;
+        }
+
+        if (head.task.getDescription().equalsIgnoreCase(description)) {
+            System.out.println("Task '" + description + "' marked as completed.");
+            head = head.next;
+            return;
+        }
+
         Node current = head;
-        while (current != null) {
-            if (current.task.getDescription().equalsIgnoreCase(description)) {
-                current.task.markAsCompleted();
-                return;
-            }
+        Node prev = null;
+
+        while (current != null && !current.task.getDescription().equalsIgnoreCase(description)) {
+            prev = current;
             current = current.next;
         }
-        System.err.println("Task not found: " + description);
+
+        if (current == null) {
+            System.out.println("Task not found: " + description);
+            return;
+        }
+
+        prev.next = current.next;
+        System.out.println("Task '" + description + "' marked as completed.");
     }
 
     public void printTasks() {
