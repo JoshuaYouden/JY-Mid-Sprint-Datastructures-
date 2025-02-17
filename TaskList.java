@@ -20,11 +20,11 @@ public class TaskList {
         }
     }
 
-    public void markTaskAsDone(String description) {
+    public void markTaskAsCompleted(String description) {
         Node current = head;
         while (current != null) {
             if (current.task.getDescription().equalsIgnoreCase(description)) {
-                current.task.markAsDone();
+                current.task.markAsCompleted();
                 return;
             }
             current = current.next;
